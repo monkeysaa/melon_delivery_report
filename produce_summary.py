@@ -1,43 +1,22 @@
-print("Day 1")
-the_file = open("um-deliveries-20140519.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
-
-    melon = words[0]
-    count = words[1]
-    amount = words[2]
-
-    print("Delivered {} {}s for total of ${}".format(
-        count, melon, amount))
-the_file.close()
-
-
-print("Day 2")
-the_file = open("um-deliveries-20140520.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
-
-    melon = words[0]
-    count = words[1]
-    amount = words[2]
-
-    print("Delivered {} {}s for total of ${}".format(
-        count, melon, amount))
-the_file.close()
+def print_deliveries(file_list):
+    for index, filename in enumerate(file_list):
+        print(f"Day {index + 1}")
+        the_file = open(filename)
+        for line in the_file:
+            line = line.rstrip()
+            words = line.split('|')
+            
+            melon = words[0]
+            count = words[1]
+            amount = words[2]
+            
+            print(f"Delivered {count} {melon}s for a total of ${amount}")
+        the_file.close()
+        print("\n")
 
 
-print("Day 3")
-the_file = open("um-deliveries-20140521.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
-
-    melon = words[0]
-    count = words[1]
-    amount = words[2]
-
-    print("Delivered {} {}s for total of ${}".format(
-        count, melon, amount))
-the_file.close()
+file_list = ["um-deliveries-20140519.txt", 
+            "um-deliveries-20140520.txt", 
+            "um-deliveries-20140521.txt"]
+            
+print_deliveries(file_list)
